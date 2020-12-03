@@ -63,7 +63,7 @@
 |address           |string     |null: false       |
 |building          |string     |                  |
 |phone_number      |string     |null: false       |
-|buy_id            |references |foreign_key: true |
+|buy               |references |foreign_key: true |
 
 ### Association
 - belongs_to :buy
