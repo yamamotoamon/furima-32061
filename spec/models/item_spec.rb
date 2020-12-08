@@ -36,10 +36,22 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
 
+      it "カテゴリーの情報が空だと出品ができない" do
+        @item.category_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category can't be blank")
+      end
+
       it "商品状態の情報を選択していないと出品ができない" do
         @item.status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Status must be other than 1")
+      end
+      
+      it "商品状態の情報が空だと出品ができない" do
+        @item.status_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status can't be blank")
       end
       
       it "配送料負担の情報を選択していないと出品ができない" do
@@ -48,16 +60,34 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Delivery must be other than 1")
       end
 
+      it "配送料負担の情報が空だと出品ができない" do
+        @item.delivery_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery can't be blank")
+      end
+
       it "発送元地域の情報を選択していないと出品ができない" do
         @item.shipping_area_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping area must be other than 1")
       end
 
+      it "発送元地域の情報が空だと出品ができない" do
+        @item.shipping_area_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping area can't be blank")
+      end
+
       it "発送日数の情報を選択していないと出品ができない" do
         @item.shipping_day_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping day must be other than 1")
+      end
+
+      it "発送日数の情報が空だと出品ができない" do
+        @item.shipping_day_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping day can't be blank")
       end
 
       it "販売価格が空だと出品ができない" do
@@ -67,7 +97,7 @@ RSpec.describe Item, type: :model do
       end
 
       it "価格の範囲が¥300以上でないと出品ができない" do
-        @item.price = 100
+        @item.price = 299
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
       end
