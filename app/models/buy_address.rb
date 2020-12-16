@@ -12,7 +12,7 @@ class BuyAddress
   end
 
   def save
-    Buy.create(user_id: user_id, item_id: item_id)
-    Address.create(postal_code: postal_code, shipping_area_id: shipping_area_id, municipality: municipality, address: address, building: building, phone_number: phone_number)
+    buy = Buy.create(user_id: user_id, item_id: item_id)
+    Address.create(postal_code: postal_code, shipping_area_id: shipping_area_id, municipality: municipality, address: address, building: building, phone_number: phone_number, buy_id: buy.id)
   end
 end
