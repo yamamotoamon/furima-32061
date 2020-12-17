@@ -9,6 +9,8 @@ class BuyAddress
     validates :municipality, format: { with: /\A[ぁ-んァ-ン一-龥]/, }
     validates :address
     validates :phone_number, format: { with: /\A\d{11}\z/, }
+    validates :user_id
+    validates :item_id
   end
 
   def save

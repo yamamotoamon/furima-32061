@@ -69,6 +69,16 @@ RSpec.describe BuyAddress, type: :model do
         @buy_address.valid?
         expect(@buy_address.errors.full_messages).to include("Token can't be blank")
       end
+      it 'user_idが空では登録が出来ない' do
+        @buy_address.user_id = nil
+        @buy_address.valid?
+        expect(@buy_address.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空では登録が出来ない' do
+        @buy_address.item_id = nil
+        @buy_address.valid?
+        expect(@buy_address.errors.full_messages).to include("Item can't be blank")
+      end
     end
   end
 end
