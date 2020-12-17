@@ -4,8 +4,8 @@ class BuyAddress
 
   with_options presence: true do
     validates :token
-    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: "is invalid. Include hyphen(-)" }
-    validates :shipping_area_id, numericality: { other_than: 1, message:"must be other than 1" }
+    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: "はハイフンを含めてください" }
+    validates :shipping_area_id, numericality: { other_than: 1, message:"を選んでください" }
     validates :municipality, format: { with: /\A[ぁ-んァ-ン一-龥]/, }
     validates :address
     validates :phone_number, format: { with: /\A\d{10,11}\z/, }

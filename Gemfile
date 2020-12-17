@@ -69,3 +69,5 @@ gem 'active_hash'
 gem 'faker'
 
 gem 'payjp'
+
+gem 'rails-i18n'

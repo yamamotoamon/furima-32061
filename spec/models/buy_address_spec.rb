@@ -22,62 +22,62 @@ RSpec.describe BuyAddress, type: :model do
       it '郵便番号が空だと保存が出来ない' do
         @buy_address.postal_code = nil
         @buy_address.valid?
-        expect(@buy_address.errors.full_messages).to include("Postal code can't be blank")
+        expect(@buy_address.errors.full_messages).to include("郵便番号を入力してください")
       end
       it '郵便番号にハイフンが入っていないと保存が出来ない' do
         @buy_address.postal_code = 1234567
         @buy_address.valid?
-        expect(@buy_address.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@buy_address.errors.full_messages).to include("郵便番号はハイフンを含めてください")
       end
       it '都道府県が空だと保存が出来ない' do
         @buy_address.shipping_area_id = nil
         @buy_address.valid?
-        expect(@buy_address.errors.full_messages).to include("Shipping area can't be blank")
+        expect(@buy_address.errors.full_messages).to include("都道府県を入力してください")
       end
       it '都道府県を選択していないと保存が出来ない' do
         @buy_address.shipping_area_id = 1
         @buy_address.valid?
-        expect(@buy_address.errors.full_messages).to include("Shipping area must be other than 1")
+        expect(@buy_address.errors.full_messages).to include("都道府県を選んでください")
       end
       it '市区町村が空だと保存が出来ない' do
         @buy_address.municipality = nil
         @buy_address.valid?
-        expect(@buy_address.errors.full_messages).to include("Municipality can't be blank")
+        expect(@buy_address.errors.full_messages).to include("市町村を入力してください")
       end
       it '番地が空だと保存が出来ない' do
         @buy_address.address = nil
         @buy_address.valid?
-        expect(@buy_address.errors.full_messages).to include("Address can't be blank")
+        expect(@buy_address.errors.full_messages).to include("住所を入力してください")
       end
       it '電話番号が空だと保存が出来ない' do
         @buy_address.phone_number = nil
         @buy_address.valid?
-        expect(@buy_address.errors.full_messages).to include("Phone number can't be blank")
+        expect(@buy_address.errors.full_messages).to include("電話番号を入力してください")
       end
       it '電話番号が11桁以下でないと保存が出来ない' do
         @buy_address.phone_number = 123456789012
         @buy_address.valid?
-        expect(@buy_address.errors.full_messages).to include("Phone number is invalid")
+        expect(@buy_address.errors.full_messages).to include("電話番号は不正な値です")
       end
       it '電話番号が数字のみでないと登録が出来ない' do
         @buy_address.phone_number = "abcd123efgh"
         @buy_address.valid?
-        expect(@buy_address.errors.full_messages).to include("Phone number is invalid")
+        expect(@buy_address.errors.full_messages).to include("電話番号は不正な値です")
       end
       it 'tokenが空では登録が出来ない' do
         @buy_address.token = nil
         @buy_address.valid?
-        expect(@buy_address.errors.full_messages).to include("Token can't be blank")
+        expect(@buy_address.errors.full_messages).to include("トークンを入力してください")
       end
       it 'user_idが空では登録が出来ない' do
         @buy_address.user_id = nil
         @buy_address.valid?
-        expect(@buy_address.errors.full_messages).to include("User can't be blank")
+        expect(@buy_address.errors.full_messages).to include("Userを入力してください")
       end
       it 'item_idが空では登録が出来ない' do
         @buy_address.item_id = nil
         @buy_address.valid?
-        expect(@buy_address.errors.full_messages).to include("Item can't be blank")
+        expect(@buy_address.errors.full_messages).to include("Itemを入力してください")
       end
     end
   end
