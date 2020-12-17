@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
 
   belongs_to :user
-  has_one :buy, foreign_key: :item_id, dependent: :destroy
+  has_one :buy, dependent: :destroy
   has_one_attached :image
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
